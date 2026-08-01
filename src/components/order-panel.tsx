@@ -49,7 +49,7 @@ export function OrderPanel({ product }: { product: Product }) {
         </div>
       </div>
 
-      <fieldset className="mt-6 space-y-2 border border-black/15 bg-paper/40 p-4">
+      <fieldset className="mt-6 space-y-2 border border-black/15 bg-black/[0.02] p-4">
         <legend className="px-1 font-mono text-[10px] tracking-[0.2em] text-black/50">BEFORE YOU ORDER</legend>
         {ORDER_ACKNOWLEDGEMENTS.map((label, i) => (
           <label key={label} className="flex cursor-pointer items-start gap-2 text-[13px] leading-snug">
