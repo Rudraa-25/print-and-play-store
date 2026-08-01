@@ -99,3 +99,39 @@
 @utility hot-glow {
   box-shadow: 0 0 60px 8px var(--hot);
 }
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Markdown body styling */
+.prose-spool p { margin-bottom: 1rem; }
+.prose-spool h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(0 0 0 / 0.5);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-spool h3 { font-size: 1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose-spool ul { list-style: none; padding: 0; margin-bottom: 1rem; }
+.prose-spool ul li { position: relative; padding-left: 1.1rem; margin-bottom: 0.5rem; }
+.prose-spool ul li::before { content: "▸"; position: absolute; left: 0; color: var(--hot); }
+.prose-spool ol { list-style: decimal; padding-left: 1.2rem; margin-bottom: 1rem; }
+.prose-spool a { text-decoration: underline; }
+.prose-spool a:hover { color: var(--hot); }
+.prose-spool strong { font-weight: 700; }
+
+/* Subtle page fade-in */
+@keyframes spool-fade-in {
+  from { opacity: 0; transform: translateY(6px); filter: blur(2px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+main { animation: spool-fade-in 0.45s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  main { animation: none; }
+  .animate-\[marquee_28s_linear_infinite\] { animation: none; }
+}
