@@ -101,7 +101,7 @@ function ProductPage() {
                   onClick={() => setZoom((z) => !z)}
                 >
                   <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-1.5">
-                    {p.badges.map((b) => (
+                    {p.badges.map((b: string) => (
                       <span key={b} className="bg-hot px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-black">
                         {b}
                       </span>
@@ -121,7 +121,7 @@ function ProductPage() {
               </div>
               {p.gallery.length > 1 && (
                 <div className="mt-3 grid grid-cols-4 gap-3">
-                  {p.gallery.map((src, i) => (
+                  {p.gallery.map((src: string, i: number) => (
                     <button
                       key={src + i}
                       onClick={() => { setActive(i); setZoom(false); }}
