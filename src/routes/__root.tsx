@@ -9,18 +9,19 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 bg-pluses">
-      <div className="max-w-md text-center border border-black bg-white p-10">
+      <div className="max-w-md text-center border border-border bg-card p-10">
         <h1 className="text-6xl font-mono font-bold">404<span className="text-hot">*</span></h1>
-        <p className="mt-3 text-sm text-black/60">
+        <p className="mt-3 text-sm text-muted-foreground">
           This SKU doesn't exist. Might be sold out, might never have been printed.
         </p>
-        <Link to="/" className="mt-6 inline-block border border-black bg-hot px-4 py-2 text-xs font-bold tracking-[0.2em]">
+        <Link to="/" className="mt-6 inline-block border border-border bg-hot px-4 py-2 text-xs font-bold tracking-[0.2em]">
           BACK TO SHOP →
         </Link>
       </div>
@@ -39,15 +40,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold">Something misprinted.</h1>
-        <p className="mt-2 text-sm text-black/60">Try again or head back to the shop.</p>
+        <p className="mt-2 text-sm text-muted-foreground">Try again or head back to the shop.</p>
         <div className="mt-6 flex justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="border border-black bg-black px-4 py-2 text-xs font-bold tracking-[0.2em] text-white"
+            className="border border-border bg-primary px-4 py-2 text-xs font-bold tracking-[0.2em] text-primary-foreground"
           >
             RETRY
           </button>
-          <a href="/" className="border border-black px-4 py-2 text-xs font-bold tracking-[0.2em]">HOME</a>
+          <a href="/" className="border border-border px-4 py-2 text-xs font-bold tracking-[0.2em]">HOME</a>
         </div>
       </div>
     </div>
@@ -98,6 +99,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <Toaster />
     </QueryClientProvider>
   );
 }

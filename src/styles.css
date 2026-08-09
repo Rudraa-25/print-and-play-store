@@ -39,27 +39,39 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.995 0.003 90);
-  --foreground: oklch(0.15 0 0);
-  --ink: oklch(0.08 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.08 0 0);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.96 0 0);
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.5 0 0);
-  --hot: oklch(0.72 0.19 55);
+  /* near-black canvas */
+  --background: oklch(0.16 0.005 250);
+  --foreground: oklch(0.97 0.01 120);
+  --ink: oklch(0.11 0.005 250);
+  --card: oklch(0.205 0.006 250);
+  --card-foreground: oklch(0.97 0.01 120);
+  --popover: oklch(0.205 0.006 250);
+  --popover-foreground: oklch(0.97 0.01 120);
+  /* electric lime */
+  --primary: oklch(0.9 0.23 125);
+  --primary-foreground: oklch(0.14 0.01 250);
+  --primary-glow: oklch(0.95 0.2 125);
+  --secondary: oklch(0.26 0.008 250);
+  --secondary-foreground: oklch(0.97 0.01 120);
+  --muted: oklch(0.26 0.008 250);
+  --muted-foreground: oklch(0.72 0.01 250);
+  --accent: oklch(0.72 0.19 55);
+  --accent-foreground: oklch(0.14 0.01 250);
+  --destructive: oklch(0.62 0.23 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.008 250);
+  --input: oklch(0.32 0.008 250);
+  --ring: oklch(0.9 0.23 125);
+  /* brand accents */
+  --hot: oklch(0.9 0.23 125);
+  --ember: oklch(0.72 0.19 55);
+  --gradient-neon: linear-gradient(135deg, var(--hot), var(--ember));
+  --shadow-neon: 0 0 40px -8px var(--hot);
+}
+
+@theme inline {
+  --color-ember: var(--ember);
+  --color-primary-glow: var(--primary-glow);
 }
 
 @layer base {
@@ -71,26 +83,32 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 { font-family: var(--font-mono); letter-spacing: -0.01em; }
+  /* WCAG-friendly visible focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--hot);
+    outline-offset: 2px;
+  }
 }
 
 /* Plus-sign grid background */
 @utility bg-pluses {
   background-image:
-    linear-gradient(to right, oklch(0 0 0 / 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0 0 0 / 0.09) 1px, transparent 1px);
+    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
   background-position: -1px -1px;
   position: relative;
 }
 
+
 /* Barcode strip */
 @utility barcode {
   background-image: repeating-linear-gradient(
     to right,
-    #000 0 2px, transparent 2px 4px,
-    #000 4px 5px, transparent 5px 9px,
-    #000 9px 11px, transparent 11px 13px,
-    #000 13px 14px, transparent 14px 18px
+    currentColor 0 2px, transparent 2px 4px,
+    currentColor 4px 5px, transparent 5px 9px,
+    currentColor 9px 11px, transparent 11px 13px,
+    currentColor 13px 14px, transparent 14px 18px
   );
   height: 32px;
   width: 100%;
@@ -112,7 +130,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: oklch(0 0 0 / 0.5);
+  color: var(--muted-foreground);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
@@ -134,4 +152,21 @@ main { animation: spool-fade-in 0.45s ease-out both; }
 @media (prefers-reduced-motion: reduce) {
   main { animation: none; }
   .animate-\[marquee_28s_linear_infinite\] { animation: none; }
+}
+
+/* Logo language cycler */
+@keyframes spool-script-in {
+  from { opacity: 0; transform: translateY(0.35em); }
+  to { opacity: 1; transform: none; }
+}
+.spool-script { animation: spool-script-in 0.28s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .spool-script { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
