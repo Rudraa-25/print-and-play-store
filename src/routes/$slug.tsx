@@ -102,7 +102,7 @@ function ProductPage() {
                 >
                   <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-1.5">
                     {p.badges.map((b: string) => (
-                      <span key={b} className="bg-hot px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-black">
+                      <span key={b} className="bg-hot px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
                         {b}
                       </span>
                     ))}
@@ -147,7 +147,7 @@ function ProductPage() {
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <p className="font-mono text-4xl font-bold">{formatPrice(p.price)}</p>
-                <span className={`px-2 py-1 font-mono text-[10px] font-bold tracking-[0.18em] ${soldOut ? "bg-primary text-primary-foreground" : "bg-hot text-black"}`}>
+                <span className={`px-2 py-1 font-mono text-[10px] font-bold tracking-[0.18em] ${soldOut ? "bg-primary text-primary-foreground" : "bg-hot text-primary-foreground"}`}>
                   {soldOut ? "MADE TO ORDER SOON" : `${p.stock} IN STOCK`}
                 </span>
               </div>
@@ -158,14 +158,14 @@ function ProductPage() {
               <OrderPanel product={p} />
 
               <div className="mt-6 flex flex-wrap gap-2 border-t border-border pt-5">
-                <button onClick={copyLink} className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-white">
+                <button onClick={copyLink} className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-primary-foreground">
                   {copied ? "LINK COPIED ✓" : "COPY LINK"}
                 </button>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I have a question about ${p.title} (${p.sku}).`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-white"
+                  className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-primary-foreground"
                 >
                   ASK A QUESTION
                 </a>
@@ -173,7 +173,7 @@ function ProductPage() {
                   href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${p.title} by SPOOL — ${p.tagline}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-white"
+                  className="border border-border px-3 py-2 font-mono text-[10px] tracking-[0.18em] transition hover:bg-primary hover:text-primary-foreground"
                 >
                   SHARE
                 </a>

@@ -43,7 +43,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <div className="mt-6 flex justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="border border-border bg-primary px-4 py-2 text-xs font-bold tracking-[0.2em] text-white"
+            className="border border-border bg-primary px-4 py-2 text-xs font-bold tracking-[0.2em] text-primary-foreground"
           >
             RETRY
           </button>

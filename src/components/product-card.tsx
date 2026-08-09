@@ -7,7 +7,7 @@ function BadgeChip({ label }: { label: string }) {
   return (
     <span
       className={`px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] ${
-        isHot ? "bg-hot text-black" : "border border-border bg-card/90 text-muted-foreground"
+        isHot ? "bg-hot text-primary-foreground" : "border border-border bg-card/90 text-muted-foreground"
       }`}
     >
       {label}
@@ -60,7 +60,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-0.5 text-xl font-bold tracking-tight">{product.title}</p>
         </div>
         <div className="flex min-w-[120px] items-stretch gap-3 p-3 text-right">
-          <div className="flex items-center text-black">
+          <div className="flex items-center text-foreground">
             <Barcode seed={product.sku} orientation="vertical" height={28} className="h-14" />
           </div>
           <div className="flex flex-1 flex-col justify-between">
@@ -75,7 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="text-[11px] leading-snug text-muted-foreground">
           <span className="text-hot">▸</span> {product.tagline}
         </p>
-        <span className="shrink-0 border border-border bg-primary px-3 py-2 text-[11px] font-bold tracking-[0.18em] text-white transition-colors duration-300 group-hover:bg-hot group-hover:text-black">
+        <span className="shrink-0 border border-border bg-primary px-3 py-2 text-[11px] font-bold tracking-[0.18em] text-primary-foreground transition-colors duration-300 group-hover:bg-hot group-hover:text-primary-foreground">
           {soldOut ? "COMING SOON" : "VIEW →"}
         </span>
       </div>

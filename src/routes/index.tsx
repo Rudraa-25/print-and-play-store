@@ -44,13 +44,13 @@ function Hero() {
             printer starts when you order.
           </p>
           <dl className="grid grid-cols-3 gap-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
-            <div><dt className="text-2xl font-bold text-black">{products.length}</dt>PRODUCTS</div>
-            <div><dt className="text-2xl font-bold text-black">2–5d</dt>DISPATCH</div>
-            <div><dt className="text-2xl font-bold text-black">₹0</dt>SHIPPING</div>
+            <div><dt className="text-2xl font-bold text-foreground">{products.length}</dt>PRODUCTS</div>
+            <div><dt className="text-2xl font-bold text-foreground">2–5d</dt>DISPATCH</div>
+            <div><dt className="text-2xl font-bold text-foreground">₹0</dt>SHIPPING</div>
           </dl>
         </div>
       </div>
-      <div className="border-t border-border bg-ink py-2 text-white">
+      <div className="border-t border-border bg-ink py-2 text-foreground">
         <div className="flex gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.3em] animate-[marquee_28s_linear_infinite]">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="flex gap-8">
@@ -163,7 +163,7 @@ function Index() {
                   key={c}
                   onClick={() => setCategory(c)}
                   className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition ${
-                    category === c ? "border-hot bg-hot text-black" : "border-border hover:border-hot hover:text-hot"
+                    category === c ? "border-hot bg-hot text-primary-foreground" : "border-border hover:border-hot hover:text-hot"
                   }`}
                 >
                   {c}

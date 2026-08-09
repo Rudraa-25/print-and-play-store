@@ -5,7 +5,7 @@ import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, CONTACT_EMAIL, INSTAGRAM_URL } from 
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-ink text-white backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border bg-ink text-foreground backdrop-blur">
       <div className="flex h-14 items-center justify-between px-4 md:px-6">
         <Link to="/" className="group flex items-center gap-2">
           <img
@@ -30,7 +30,7 @@ export function SiteHeader() {
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 inline-flex h-8 items-center justify-center border border-border px-3 text-white transition hover:border-hot hover:text-hot"
+            className="ml-2 inline-flex h-8 items-center justify-center border border-border px-3 text-foreground transition hover:border-hot hover:text-hot"
           >
             <span className="text-hot">◉</span>
             <span className="ml-2 hidden md:inline">WHATSAPP</span>
@@ -43,7 +43,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="mt-24 bg-ink text-white">
+    <footer id="contact" className="mt-24 bg-ink text-foreground">
       <div className="grid gap-10 px-6 py-16 md:grid-cols-4 md:px-10">
         <div className="md:col-span-2">
           <h2 className="font-mono text-xl tracking-tight">SPOOL<span className="text-hot">*</span></h2>
@@ -91,7 +91,7 @@ export function SiteFooter() {
             aria-label="Email address"
             className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-muted-foreground"
           />
-          <button className="bg-hot px-4 font-mono text-[11px] font-bold tracking-[0.2em] text-black transition hover:brightness-110">
+          <button className="bg-hot px-4 font-mono text-[11px] font-bold tracking-[0.2em] text-primary-foreground transition hover:brightness-110">
             NOTIFY ME
           </button>
         </form>
@@ -99,7 +99,7 @@ export function SiteFooter() {
 
       <div className="flex flex-wrap items-center justify-between gap-6 border-t border-border px-6 py-5 font-mono text-[10px] tracking-[0.2em] text-muted-foreground md:px-10">
         <span>© 2026 SPOOL STUDIO · ALL RIGHTS RESERVED</span>
-        <div className="flex flex-col items-end gap-1 text-white">
+        <div className="flex flex-col items-end gap-1 text-foreground">
           <Barcode seed="SPOOL-EDITION-01-2026" orientation="horizontal" height={32} className="w-40" />
           <span className="text-[9px] tracking-[0.25em] text-muted-foreground">EDITION 01 — 2026</span>
         </div>

@@ -30,7 +30,7 @@ export function OrderPanel({ product }: { product: Product }) {
                 key={c}
                 onClick={() => setColor(c)}
                 className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] transition ${
-                  color === c ? "border-hot bg-hot text-black" : "border-border hover:border-hot"
+                  color === c ? "border-hot bg-hot text-primary-foreground" : "border-border hover:border-hot"
                 }`}
               >
                 {c}
@@ -59,7 +59,7 @@ export function OrderPanel({ product }: { product: Product }) {
               onChange={() => toggle(i)}
               className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--hot)]"
             />
-            <span className={checked[i] ? "text-black" : "text-muted-foreground"}>{label}</span>
+            <span className={checked[i] ? "text-foreground" : "text-muted-foreground"}>{label}</span>
           </label>
         ))}
       </fieldset>
@@ -71,7 +71,7 @@ export function OrderPanel({ product }: { product: Product }) {
           className={`w-full border border-border py-4 text-sm font-bold tracking-[0.2em] transition-all duration-300 ${
             soldOut || !allAccepted
               ? "cursor-not-allowed bg-muted text-muted-foreground"
-              : "bg-primary text-primary-foreground hover:bg-hot hover:text-black hover:shadow-[0_0_30px_-6px_var(--hot)]"
+              : "bg-primary text-primary-foreground hover:bg-hot hover:text-primary-foreground hover:shadow-[0_0_30px_-6px_var(--hot)]"
           }`}
         >
           {soldOut ? "COMING SOON" : "ORDER ON WHATSAPP"}
