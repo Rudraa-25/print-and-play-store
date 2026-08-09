@@ -1,0 +1,312 @@
+[
+  {
+    "title": "GEARBOX",
+    "slug": "gearbox",
+    "sku": "SPL-008",
+    "tagline": "Print-in-place fidget cube",
+    "price": 599,
+    "stock": 0,
+    "featured": false,
+    "category": "Toys",
+    "accent": "#44e05b",
+    "badges": [
+      "Coming Soon"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Translucent Green",
+      "Translucent Blue"
+    ],
+    "thumbnail": "/products/gearbox/main.jpg",
+    "gallery": [
+      "/products/gearbox/main.jpg"
+    ],
+    "description": "Five working gears trapped inside a translucent print-in-place fidget cube.",
+    "tags": [
+      "toy",
+      "fidget",
+      "gears"
+    ],
+    "print_time": "5h",
+    "shipping_days": 3,
+    "dimensions": "60x60x60mm",
+    "weight": "82g",
+    "date": "2026-07-25",
+    "body": "A gearbox with no purpose. Spin the top gear, watch the others chase it, put it down, pick it up again in five minutes.\n\n- Five working brass gears trapped inside a translucent PLA cube.\n- Spin one, they all spin. Meditative and slightly annoying.\n- Fits in a coat pocket. Weighs 82g."
+  },
+  {
+    "title": "LUNARIA",
+    "slug": "lunaria",
+    "sku": "SPL-007",
+    "tagline": "Moon lamp on oak cradle",
+    "price": 1299,
+    "stock": 18,
+    "featured": false,
+    "category": "Lamps",
+    "accent": "#f6e6b5",
+    "badges": [
+      "New",
+      "Best Seller"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Moon White"
+    ],
+    "thumbnail": "/products/lunaria/main.jpg",
+    "gallery": [
+      "/products/lunaria/main.jpg"
+    ],
+    "description": "A 160mm glow-diffusing moon lamp on a hand-oiled solid oak cradle, USB-C rechargeable.",
+    "tags": [
+      "lamp",
+      "moon",
+      "nightlight"
+    ],
+    "print_time": "11h",
+    "shipping_days": 3,
+    "dimensions": "160x160x190mm",
+    "weight": "480g",
+    "date": "2026-07-12",
+    "body": "The moon, but small, on your nightstand, on a piece of oak. Tap the base to cycle brightness. That's the whole product.\n\n- 160mm moon printed in glow-diffusing PLA with real lunar surface detail.\n- Warm 3000K LED, USB-C rechargeable, 12h battery.\n- Cradle CNC-cut from solid oak, oiled by hand."
+  },
+  {
+    "title": "PI-TV",
+    "slug": "pi-tv",
+    "sku": "SPL-005",
+    "tagline": "Raspberry Pi retro case",
+    "price": 4499,
+    "stock": 20,
+    "featured": true,
+    "category": "Electronics",
+    "accent": "#efe6d3",
+    "badges": [
+      "Limited",
+      "Engineer Pick",
+      "New"
+    ],
+    "materials": [
+      "PLA",
+      "PETG"
+    ],
+    "colors": [
+      "Bone",
+      "Black"
+    ],
+    "thumbnail": "/products/pi-tv/main.jpg",
+    "gallery": [
+      "/products/pi-tv/main.jpg"
+    ],
+    "description": "A working tiny retro TV built around a Raspberry Pi 5 with a 2in IPS screen and custom firmware.",
+    "tags": [
+      "electronics",
+      "raspberry pi",
+      "retro"
+    ],
+    "print_time": "18h",
+    "shipping_days": 5,
+    "dimensions": "140x120x130mm",
+    "weight": "720g",
+    "date": "2026-07-04",
+    "body": "A working tiny TV. Boot it, plug in an audio source, and watch your music turn into waveforms. Everything is open - swap the firmware, rewrite the display, break it, fix it.\n\n- Ships pre-assembled with Pi 5 (8GB), 128GB SD, and a 2in IPS screen.\n- Runs a custom oscilloscope + now-playing widget out of the box.\n- USB-C in, HDMI out, snap-off back panel for tinkering."
+  },
+  {
+    "title": "DRAGO",
+    "slug": "drago",
+    "sku": "SPL-004",
+    "tagline": "Articulated dragon",
+    "price": 799,
+    "stock": 30,
+    "featured": true,
+    "category": "Toys",
+    "accent": "#ff6a1a",
+    "badges": [
+      "Best Seller",
+      "Customizable"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Flame Orange",
+      "Sea Green",
+      "Midnight Purple"
+    ],
+    "thumbnail": "/products/drago/main.jpg",
+    "gallery": [
+      "/products/drago/main.jpg"
+    ],
+    "description": "Print-in-place articulated dragon with 46 flexible joints, no assembly required.",
+    "tags": [
+      "toy",
+      "fidget",
+      "dragon"
+    ],
+    "print_time": "9h",
+    "shipping_days": 2,
+    "dimensions": "220x60x70mm",
+    "weight": "96g",
+    "date": "2026-06-20",
+    "body": "The fidget toy that ate all the other fidget toys. Every joint moves. Every spike wiggles. Warning: it will end up on your coworker's desk.\n\n- Print-in-place. 46 flexible joints. No assembly, no supports.\n- Roughly 22cm nose to tail. Fits in a jacket pocket.\n- Choose flame orange, sea green, or midnight purple at checkout."
+  },
+  {
+    "title": "CURL",
+    "slug": "curl",
+    "sku": "SPL-003",
+    "tagline": "Sculptural bulb lamp",
+    "price": 2499,
+    "stock": 8,
+    "featured": true,
+    "category": "Lamps",
+    "accent": "#f2ebe0",
+    "badges": [
+      "Limited",
+      "Engineer Pick"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Matte White",
+      "Sand"
+    ],
+    "thumbnail": "/products/curl/main.jpg",
+    "gallery": [
+      "/products/curl/main.jpg"
+    ],
+    "description": "A single-curve printed lamp base with a warm 2700K filament globe and braided cotton cord.",
+    "tags": [
+      "lamp",
+      "lighting",
+      "decor"
+    ],
+    "print_time": "14h",
+    "shipping_days": 4,
+    "dimensions": "210x180x240mm",
+    "weight": "640g",
+    "date": "2026-06-01",
+    "body": "One continuous curve, printed in a single 14-hour run. No screws, no seams. Add a filament bulb and the whole thing glows like a paper lantern.\n\n- Hand-printed matte white PLA base, single E27 socket.\n- Ships with a warm 2700K vintage globe filament bulb.\n- Braided cotton cord, 1.8m, with inline switch."
+  },
+  {
+    "title": "HEXGROVE",
+    "slug": "hexgrove",
+    "sku": "SPL-006",
+    "tagline": "Modular wall garden - 6 pack",
+    "price": 1899,
+    "stock": 15,
+    "featured": false,
+    "category": "Garden",
+    "accent": "#e07b52",
+    "badges": [
+      "Made To Order",
+      "Customizable"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Terracotta",
+      "Sage",
+      "White"
+    ],
+    "thumbnail": "/products/hexgrove/main.jpg",
+    "gallery": [
+      "/products/hexgrove/main.jpg"
+    ],
+    "description": "Six hexagonal planters that snap into a honeycomb wall grid with no drilling required.",
+    "tags": [
+      "garden",
+      "wall",
+      "modular"
+    ],
+    "print_time": "22h",
+    "shipping_days": 4,
+    "dimensions": "300x260x70mm",
+    "weight": "540g",
+    "date": "2026-05-22",
+    "body": "A garden that grows sideways. Start with six, add more, build the wall your landlord definitely didn't approve.\n\n- Six hexagonal PLA planters that snap into a honeycomb wall grid.\n- Command-strip mounting, no drill required, holds up to 400g each.\n- Rearrange the pattern any time - every piece connects to every other."
+  },
+  {
+    "title": "GRIPPY",
+    "slug": "grippy",
+    "sku": "SPL-001",
+    "tagline": "MagSafe grip + stand",
+    "price": 449,
+    "stock": 22,
+    "featured": true,
+    "category": "Mobile",
+    "accent": "#111111",
+    "badges": [
+      "Only 22 Left",
+      "Best Seller",
+      "Made To Order"
+    ],
+    "materials": [
+      "PETG",
+      "PLA"
+    ],
+    "colors": [
+      "Black",
+      "Orange",
+      "White"
+    ],
+    "thumbnail": "/products/grippy/main.jpg",
+    "gallery": [
+      "/products/grippy/main.jpg"
+    ],
+    "description": "A MagSafe tripod grip printed in matte black PETG, folds flat and holds landscape or portrait.",
+    "tags": [
+      "phone",
+      "grip",
+      "stand"
+    ],
+    "print_time": "4h",
+    "shipping_days": 3,
+    "dimensions": "82x60x9mm",
+    "weight": "34g",
+    "date": "2026-05-02",
+    "body": "A tripod grip you'll actually keep on your phone. Printed one at a time on a Bambu X1C, hand-finished, and stress-tested by dropping it more times than we'd like to admit.\n\n- Snaps onto MagSafe or any phone with the included adhesive back.\n- Folds flat, pops out into a tripod that holds landscape or portrait.\n- Printed in matte black PETG. Handles 40C summer dashboards."
+  },
+  {
+    "title": "POD 01",
+    "slug": "pod-01",
+    "sku": "SPL-002",
+    "tagline": "Faceted desk planter",
+    "price": 349,
+    "stock": 40,
+    "featured": false,
+    "category": "Garden",
+    "accent": "#c47651",
+    "badges": [
+      "Made To Order",
+      "Student Favorite"
+    ],
+    "materials": [
+      "PLA"
+    ],
+    "colors": [
+      "Terracotta",
+      "White",
+      "Black"
+    ],
+    "thumbnail": "/products/pod-01/main.jpg",
+    "gallery": [
+      "/products/pod-01/main.jpg"
+    ],
+    "description": "Low-poly terracotta planter with a drainage hole and cork base, sized for succulents and herbs.",
+    "tags": [
+      "planter",
+      "desk",
+      "garden"
+    ],
+    "print_time": "6h",
+    "shipping_days": 3,
+    "dimensions": "95x95x88mm",
+    "weight": "120g",
+    "date": "2026-04-18",
+    "body": "A pot for people who kill plants but still try. The facets forgive fingerprints, the cork mat catches spills, and the color plays nice with basically any desk.\n\n- Low-poly terracotta-PLA planter with drainage hole and cork base.\n- Fits succulents, cacti and small herbs up to 3in root ball.\n- Sealed inside so it won't weep water on your desk."
+  }
+]
