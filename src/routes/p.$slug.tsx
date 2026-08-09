@@ -37,8 +37,8 @@ function PolicyPage() {
       <SiteHeader />
       <main className="flex-1 bg-pluses">
         <div className="mx-auto grid max-w-5xl gap-6 px-4 py-10 md:grid-cols-[220px_1fr] md:px-6">
-          <aside className="h-max border border-black bg-white p-4">
-            <p className="font-mono text-[10px] tracking-[0.2em] text-black/50">INFORMATION</p>
+          <aside className="h-max border border-border bg-card p-4">
+            <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">INFORMATION</p>
             <ul className="mt-3 space-y-1.5">
               {policies.map((p) => (
                 <li key={p.slug}>
@@ -54,9 +54,9 @@ function PolicyPage() {
               ))}
             </ul>
           </aside>
-          <article className="border border-black bg-white p-6 md:p-10">
+          <article className="border border-border bg-card p-6 md:p-10">
             <h1 className="font-mono text-3xl font-bold tracking-tight md:text-4xl">{page.title}</h1>
-            <p className="mt-2 text-sm text-black/60">{page.description}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{page.description}</p>
             <div
               className="prose-spool mt-8 text-[15px] leading-relaxed"
               dangerouslySetInnerHTML={{ __html: page.html }}
