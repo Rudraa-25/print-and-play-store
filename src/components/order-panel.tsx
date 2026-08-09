@@ -81,13 +81,13 @@ export function OrderPanel({ product }: { product: Product }) {
             TICK ALL FIVE BOXES TO UNLOCK ORDERING
           </p>
         )}
-        <button
-          disabled
-          className="w-full cursor-not-allowed border border-border bg-card py-3 text-xs font-bold tracking-[0.2em] text-muted-foreground"
-          title="Online payments arrive soon"
-        >
-          CARD / UPI CHECKOUT · COMING SOON
-        </button>
+        <RazorpayButton
+          product={product}
+          quantity={quantity}
+          color={color}
+          disabled={soldOut || !allAccepted}
+        />
+
       </div>
 
       <p className="mt-3 text-center font-mono text-[10px] tracking-[0.15em] text-muted-foreground">
