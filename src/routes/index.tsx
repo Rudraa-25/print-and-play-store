@@ -32,25 +32,25 @@ const SORTS: { id: SortKey; label: string }[] = [
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-black bg-pluses">
+    <section className="relative overflow-hidden border-b border-border bg-pluses">
       <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
-        <p className="font-mono text-[11px] tracking-[0.3em] text-black/50">EDITION 01 — BENGALURU, INDIA</p>
+        <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground">EDITION 01 — BENGALURU, INDIA</p>
         <h1 className="mt-5 font-mono text-[15vw] font-bold leading-[0.85] tracking-tighter md:text-[9rem]">
           SPOOL<span className="text-hot">*</span>
         </h1>
-        <div className="mt-6 grid gap-6 border-t border-black pt-6 md:grid-cols-[1.2fr_1fr]">
-          <p className="max-w-lg text-[15px] leading-relaxed text-black/70">
+        <div className="mt-6 grid gap-6 border-t border-border pt-6 md:grid-cols-[1.2fr_1fr]">
+          <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             Industrial-grade 3D printed goods, designed and printed one at a time. Nothing sits on a shelf — the
             printer starts when you order.
           </p>
-          <dl className="grid grid-cols-3 gap-4 font-mono text-[11px] tracking-[0.15em] text-black/50">
+          <dl className="grid grid-cols-3 gap-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
             <div><dt className="text-2xl font-bold text-black">{products.length}</dt>PRODUCTS</div>
             <div><dt className="text-2xl font-bold text-black">2–5d</dt>DISPATCH</div>
             <div><dt className="text-2xl font-bold text-black">₹0</dt>SHIPPING</div>
           </dl>
         </div>
       </div>
-      <div className="border-t border-black bg-ink py-2 text-white">
+      <div className="border-t border-border bg-ink py-2 text-white">
         <div className="flex gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.3em] animate-[marquee_28s_linear_infinite]">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="flex gap-8">
@@ -106,22 +106,22 @@ function Index() {
 
         {/* Featured strip */}
         <section className="mx-auto max-w-6xl px-4 pt-14 md:px-6">
-          <div className="mb-4 flex items-end justify-between border-b border-black pb-3">
+          <div className="mb-4 flex items-end justify-between border-b border-border pb-3">
             <h2 className="font-mono text-xl font-bold tracking-tight">FEATURED</h2>
-            <span className="font-mono text-[10px] tracking-[0.2em] text-black/50">HAND PICKED</span>
+            <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">HAND PICKED</span>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {featured.map((p) => (
               <a
                 key={p.slug}
                 href={`/${p.slug}`}
-                className="group flex items-center gap-4 border border-black bg-white p-4 transition-all duration-300 hover:border-hot hover:shadow-[0_14px_30px_-22px_rgba(255,122,0,0.9)]"
+                className="group flex items-center gap-4 border border-border bg-card p-4 transition-all duration-300 hover:border-hot hover:shadow-[0_14px_30px_-22px_rgba(255,122,0,0.9)]"
               >
                 <img src={p.thumbnail} alt={p.title} width={80} height={80} loading="lazy" className="h-16 w-16 object-contain transition-transform duration-500 group-hover:scale-110" />
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-black/50">{p.sku}</p>
+                  <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">{p.sku}</p>
                   <p className="text-base font-bold">{p.title}</p>
-                  <p className="text-xs text-black/60">{formatPrice(p.price)}</p>
+                  <p className="text-xs text-muted-foreground">{formatPrice(p.price)}</p>
                 </div>
               </a>
             ))}
@@ -134,14 +134,14 @@ function Index() {
           </div>
 
           {/* Controls */}
-          <div className="mb-6 border border-black bg-white">
-            <div className="flex flex-col gap-3 border-b border-black p-3 md:flex-row md:items-center">
+          <div className="mb-6 border border-border bg-card">
+            <div className="flex flex-col gap-3 border-b border-border p-3 md:flex-row md:items-center">
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="SEARCH PRODUCTS, MATERIALS, TAGS…"
                 aria-label="Search products"
-                className="flex-1 bg-transparent px-2 py-2 font-mono text-[12px] tracking-[0.1em] outline-none placeholder:text-black/30 focus:ring-0"
+                className="flex-1 bg-transparent px-2 py-2 font-mono text-[12px] tracking-[0.1em] outline-none placeholder:text-muted-foreground focus:ring-0"
               />
               <div className="flex flex-wrap gap-2">
                 {SORTS.map((s) => (
@@ -149,7 +149,7 @@ function Index() {
                     key={s.id}
                     onClick={() => setSort(s.id)}
                     className={`border px-3 py-1.5 font-mono text-[10px] tracking-[0.18em] transition ${
-                      sort === s.id ? "border-black bg-black text-white" : "border-black/20 hover:border-hot hover:text-hot"
+                      sort === s.id ? "border-border bg-primary text-primary-foreground" : "border-border hover:border-hot hover:text-hot"
                     }`}
                   >
                     {s.label}
@@ -163,7 +163,7 @@ function Index() {
                   key={c}
                   onClick={() => setCategory(c)}
                   className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition ${
-                    category === c ? "border-hot bg-hot text-black" : "border-black/20 hover:border-hot hover:text-hot"
+                    category === c ? "border-hot bg-hot text-black" : "border-border hover:border-hot hover:text-hot"
                   }`}
                 >
                   {c}
@@ -172,12 +172,12 @@ function Index() {
             </div>
           </div>
 
-          <p className="mb-4 font-mono text-[10px] tracking-[0.2em] text-black/40">
+          <p className="mb-4 font-mono text-[10px] tracking-[0.2em] text-muted-foreground">
             {visible.length} {visible.length === 1 ? "RESULT" : "RESULTS"}
           </p>
 
           {visible.length === 0 ? (
-            <div className="border border-black bg-white p-16 text-center font-mono text-sm text-black/50">
+            <div className="border border-border bg-card p-16 text-center font-mono text-sm text-muted-foreground">
               NOTHING MATCHES THAT. TRY A DIFFERENT SEARCH.
             </div>
           ) : (
