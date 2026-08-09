@@ -8,6 +8,8 @@ import {
   ORDER_ACKNOWLEDGEMENTS,
   activeCheckoutProvider,
 } from "@/lib/commerce";
+import { RazorpayButton } from "@/components/razorpay-button";
+
 
 export function OrderPanel({ product }: { product: Product }) {
   const soldOut = isSoldOut(product);
