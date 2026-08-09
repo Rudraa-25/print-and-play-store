@@ -1,33 +1,33 @@
 import { Link } from "@tanstack/react-router";
 import spoolLogo from "@/assets/spool-logo.png.asset.json";
 import { Barcode } from "@/components/barcode";
+import { LogoWithTranslations } from "@/components/logo-with-translations";
 import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/commerce";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-ink text-foreground backdrop-blur">
       <div className="flex h-14 items-center justify-between px-4 md:px-6">
-        <Link to="/" className="group flex items-center gap-2">
+        <Link to="/" className="group flex items-center gap-2" aria-label="spool — home">
           <img
             src={spoolLogo.url}
-            alt="SPOOL"
+            alt=""
+            aria-hidden="true"
             width={28}
             height={28}
             className="opacity-90 brightness-0 invert transition group-hover:opacity-100"
           />
-          <span className="font-mono text-[11px] leading-none tracking-[0.2em]">
-            SPOOL<span className="text-hot">*</span>
-            <br />
-            <span className="opacity-60">3D / GOODS</span>
-          </span>
+          <LogoWithTranslations />
         </Link>
-        <nav className="flex items-center gap-5 font-mono text-[11px] tracking-[0.18em]">
+        <nav className="flex items-center gap-5 font-mono text-[11px] tracking-[0.18em]" aria-label="Main">
           <Link to="/" className="relative hidden transition hover:text-hot sm:inline">SHOP</Link>
-          <Link to="/p/$slug" params={{ slug: "about" }} className="hidden transition hover:text-hot sm:inline">ABOUT</Link>
-          <Link to="/p/$slug" params={{ slug: "faq" }} className="hidden transition hover:text-hot sm:inline">FAQ</Link>
-          <Link to="/p/$slug" params={{ slug: "contact" }} className="transition hover:text-hot">CONTACT</Link>
+          <Link to="/downloads" className="hidden transition hover:text-hot sm:inline">DOWNLOADS</Link>
+          <Link to="/p/$slug" params={{ slug: "about" }} className="hidden transition hover:text-hot md:inline">ABOUT</Link>
+          <Link to="/p/$slug" params={{ slug: "faq" }} className="hidden transition hover:text-hot md:inline">FAQ</Link>
+          <Link to="/contact" className="transition hover:text-hot">CONTACT</Link>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
+
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 inline-flex h-8 items-center justify-center border border-border px-3 text-foreground transition hover:border-hot hover:text-hot"
