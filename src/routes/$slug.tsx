@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { OrderPanel } from "@/components/order-panel";
 import { productBySlug, products, formatPrice, isSoldOut } from "@/lib/content";
 import { WHATSAPP_NUMBER } from "@/lib/commerce";
@@ -147,7 +148,7 @@ function ProductPage() {
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <p className="font-mono text-4xl font-bold">{formatPrice(p.price)}</p>
-                <span className={`px-2 py-1 font-mono text-[10px] font-bold tracking-[0.18em] ${soldOut ? "bg-primary text-primary-foreground" : "bg-hot text-primary-foreground"}`}>
+                <span className={`px-2 py-1 font-mono text-[10px] font-bold tracking-[0.18em] ${soldOut ? "bg-muted text-muted-foreground" : "bg-hot text-primary-foreground"}`}>
                   {soldOut ? "MADE TO ORDER SOON" : `${p.stock} IN STOCK`}
                 </span>
               </div>
@@ -250,6 +251,7 @@ function ProductPage() {
         </div>
       </main>
 
+      <FloatingWhatsApp productName={p.title} slug={p.slug} />
       <SiteFooter />
     </div>
   );

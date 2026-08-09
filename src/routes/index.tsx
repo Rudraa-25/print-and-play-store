@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { ProductCard } from "@/components/product-card";
 import { CipherHeading } from "@/components/cipher-heading";
 import { products, categories, formatPrice } from "@/lib/content";
@@ -190,6 +191,7 @@ function Index() {
         </section>
       </main>
 
+      <FloatingWhatsApp />
       <SiteFooter />
     </div>
   );
