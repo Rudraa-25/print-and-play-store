@@ -193,7 +193,9 @@ function Index() {
         </section>
       </main>
 
+      <StatsBand />
       <FloatingWhatsApp />
+
       <SiteFooter />
     </div>
   );
