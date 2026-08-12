@@ -52,14 +52,20 @@ function Hero() {
           ))}
         </div>
       </div>
-      <dl className="mx-auto grid max-w-6xl grid-cols-3 gap-4 border-t border-border px-4 py-6 font-mono text-[11px] tracking-[0.15em] text-muted-foreground md:px-6">
-        <div><dt className="text-2xl font-bold text-foreground">{products.length}</dt>PRODUCTS</div>
-        <div><dt className="text-2xl font-bold text-foreground">2–5d</dt>DISPATCH</div>
-        <div><dt className="text-2xl font-bold text-foreground">₹0</dt>SHIPPING</div>
-      </dl>
     </section>
   );
 }
+
+function StatsBand() {
+  return (
+    <dl className="mx-auto mt-20 grid max-w-6xl grid-cols-3 gap-4 border-t border-border px-4 py-8 font-mono text-[11px] tracking-[0.15em] text-muted-foreground md:px-6">
+      <div><dt className="text-2xl font-bold text-foreground">{products.length}</dt>PRODUCTS</div>
+      <div><dt className="text-2xl font-bold text-foreground">2–5d</dt>DISPATCH</div>
+      <div><dt className="text-2xl font-bold text-foreground">₹0</dt>SHIPPING</div>
+    </dl>
+  );
+}
+
 
 
 function Index() {
@@ -187,7 +193,9 @@ function Index() {
         </section>
       </main>
 
+      <StatsBand />
       <FloatingWhatsApp />
+
       <SiteFooter />
     </div>
   );

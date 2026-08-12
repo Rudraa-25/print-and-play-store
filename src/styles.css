@@ -67,7 +67,35 @@
   --ember: oklch(0.8 0.17 70);
   --gradient-neon: linear-gradient(135deg, var(--hot), var(--ember));
   --shadow-neon: 0 0 40px -8px var(--hot);
+  --grid-line: oklch(1 0 0 / 0.06);
 }
+
+/* Light theme */
+.light {
+  --background: oklch(0.98 0.002 250);
+  --foreground: oklch(0.18 0.005 250);
+  --ink: oklch(0.94 0.003 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.005 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.005 250);
+  --primary: oklch(0.65 0.19 50);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.75 0.17 58);
+  --secondary: oklch(0.94 0.003 250);
+  --secondary-foreground: oklch(0.18 0.005 250);
+  --muted: oklch(0.94 0.003 250);
+  --muted-foreground: oklch(0.45 0.008 250);
+  --accent: oklch(0.75 0.16 68);
+  --accent-foreground: oklch(0.18 0.005 250);
+  --border: oklch(0.86 0.005 250);
+  --input: oklch(0.86 0.005 250);
+  --ring: oklch(0.65 0.19 50);
+  --hot: oklch(0.65 0.19 50);
+  --ember: oklch(0.75 0.16 68);
+  --grid-line: oklch(0 0 0 / 0.08);
+}
+
 
 @theme inline {
   --color-ember: var(--ember);
@@ -93,12 +121,13 @@
 /* Plus-sign grid background */
 @utility bg-pluses {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 44px 44px;
   background-position: -1px -1px;
   position: relative;
 }
+
 
 
 /* Barcode strip */
@@ -170,3 +199,7 @@ main { animation: spool-fade-in 0.45s ease-out both; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Brand mark adapts to theme */
+.spool-mark { filter: brightness(0) invert(1); }
+.light .spool-mark { filter: brightness(0); }
