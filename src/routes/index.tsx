@@ -4,6 +4,7 @@ import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { ProductCard } from "@/components/product-card";
 import { CipherHeading } from "@/components/cipher-heading";
+import { HeroWordmark } from "@/components/logo-with-translations";
 import { products, categories, formatPrice } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
@@ -37,19 +38,8 @@ function Hero() {
       <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
         <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground">EDITION 01 — BENGALURU, INDIA</p>
         <h1 className="mt-5 font-mono text-[15vw] font-bold leading-[0.85] tracking-tighter md:text-[9rem]">
-          SPOOL<span className="text-hot">*</span>
+          <HeroWordmark />
         </h1>
-        <div className="mt-6 grid gap-6 border-t border-border pt-6 md:grid-cols-[1.2fr_1fr]">
-          <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-            Industrial-grade 3D printed goods, designed and printed one at a time. Nothing sits on a shelf — the
-            printer starts when you order.
-          </p>
-          <dl className="grid grid-cols-3 gap-4 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
-            <div><dt className="text-2xl font-bold text-foreground">{products.length}</dt>PRODUCTS</div>
-            <div><dt className="text-2xl font-bold text-foreground">2–5d</dt>DISPATCH</div>
-            <div><dt className="text-2xl font-bold text-foreground">₹0</dt>SHIPPING</div>
-          </dl>
-        </div>
       </div>
       <div className="border-t border-border bg-ink py-2 text-foreground">
         <div className="flex gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.3em] animate-[marquee_28s_linear_infinite]">
@@ -62,9 +52,15 @@ function Hero() {
           ))}
         </div>
       </div>
+      <dl className="mx-auto grid max-w-6xl grid-cols-3 gap-4 border-t border-border px-4 py-6 font-mono text-[11px] tracking-[0.15em] text-muted-foreground md:px-6">
+        <div><dt className="text-2xl font-bold text-foreground">{products.length}</dt>PRODUCTS</div>
+        <div><dt className="text-2xl font-bold text-foreground">2–5d</dt>DISPATCH</div>
+        <div><dt className="text-2xl font-bold text-foreground">₹0</dt>SHIPPING</div>
+      </dl>
     </section>
   );
 }
+
 
 function Index() {
   const [query, setQuery] = useState("");
