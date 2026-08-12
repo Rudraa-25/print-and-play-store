@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 
-const SITE = "https://print-and-play-store.lovable.app";
+const SITE = "http://localhost:8080";
 
 type DownloadItem = {
   name: string;

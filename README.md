@@ -40,7 +40,7 @@ node scripts/generate-products-json.mjs   # → data/products.json
 
 ## Environment variables
 
-Server-only (Lovable secrets / Vercel project settings):
+Server-only (.env / Vercel / Cloudflare project settings):
 
 | Name | Purpose |
 | ---- | ------- |
@@ -91,7 +91,7 @@ npm run dev        # http://localhost:8080
 
 ## Deployment
 
-Publish from Lovable, or deploy the repo to Vercel/Cloudflare:
+Deploy the repo to Vercel, Netlify, or Cloudflare Pages:
 set the env vars above, build with `npm run build`, then register the webhook URL.
 
 ## Launch checklist

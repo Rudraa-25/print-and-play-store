@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -32,9 +31,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -68,8 +64,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Spool — 3D printed goods, made one at a time" },
       { name: "twitter:description", content: "Small-batch 3D printed mobile accessories, planters, lamps, toys and hackable electronics. Shipped from a tiny studio in India." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c21c304-909c-411a-9f3c-d95edb42b4ee/id-preview-aba45b48--8298cffa-90ca-4dfe-9dc0-4a4dd3e27b73.lovable.app-1784098436624.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c21c304-909c-411a-9f3c-d95edb42b4ee/id-preview-aba45b48--8298cffa-90ca-4dfe-9dc0-4a4dd3e27b73.lovable.app-1784098436624.png" },
+      { property: "og:image", content: "/favicon.svg" },
+      { name: "twitter:image", content: "/favicon.svg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

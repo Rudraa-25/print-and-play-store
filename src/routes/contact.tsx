@@ -3,7 +3,7 @@ import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/commerce";
 
-const SITE = "https://print-and-play-store.lovable.app";
+const SITE = "http://localhost:8080";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

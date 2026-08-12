@@ -2,7 +2,7 @@
  * Razorpay REST helpers. Server-only — never import from a client component.
  * Uses fetch (no Node SDK) so it runs in the edge/worker runtime.
  *
- * Env vars (set in Lovable secrets / Vercel project settings):
+ * Env vars (set in .env / Vercel / Cloudflare project settings):
  *   RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET, RAZORPAY_WEBHOOK_SECRET
  *   VITE_RAZORPAY_KEY_ID (public, safe to expose), VITE_BASE_URL
  */
