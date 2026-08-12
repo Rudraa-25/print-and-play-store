@@ -70,32 +70,31 @@
   --grid-line: oklch(1 0 0 / 0.06);
 }
 
-/* Light theme */
+/* Light Cream Theme */
 .light {
-  --background: oklch(0.98 0.002 250);
-  --foreground: oklch(0.18 0.005 250);
-  --ink: oklch(0.94 0.003 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.005 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.005 250);
-  --primary: oklch(0.65 0.19 50);
+  --background: oklch(0.99 0.005 85);
+  --foreground: oklch(0.18 0.02 50);
+  --ink: oklch(0.965 0.008 85);
+  --card: oklch(0.996 0.003 85);
+  --card-foreground: oklch(0.18 0.02 50);
+  --popover: oklch(0.996 0.003 85);
+  --popover-foreground: oklch(0.18 0.02 50);
+  --primary: oklch(0.62 0.20 48);
   --primary-foreground: oklch(0.99 0 0);
-  --primary-glow: oklch(0.75 0.17 58);
-  --secondary: oklch(0.94 0.003 250);
-  --secondary-foreground: oklch(0.18 0.005 250);
-  --muted: oklch(0.94 0.003 250);
-  --muted-foreground: oklch(0.45 0.008 250);
-  --accent: oklch(0.75 0.16 68);
-  --accent-foreground: oklch(0.18 0.005 250);
-  --border: oklch(0.86 0.005 250);
-  --input: oklch(0.86 0.005 250);
-  --ring: oklch(0.65 0.19 50);
-  --hot: oklch(0.65 0.19 50);
-  --ember: oklch(0.75 0.16 68);
-  --grid-line: oklch(0 0 0 / 0.08);
+  --primary-glow: oklch(0.72 0.18 55);
+  --secondary: oklch(0.96 0.008 85);
+  --secondary-foreground: oklch(0.18 0.02 50);
+  --muted: oklch(0.96 0.008 85);
+  --muted-foreground: oklch(0.44 0.02 50);
+  --accent: oklch(0.72 0.18 55);
+  --accent-foreground: oklch(0.18 0.02 50);
+  --border: oklch(0.91 0.008 85);
+  --input: oklch(0.91 0.008 85);
+  --ring: oklch(0.62 0.20 48);
+  --hot: oklch(0.62 0.20 48);
+  --ember: oklch(0.72 0.18 55);
+  --grid-line: oklch(0.2 0.02 50 / 0.06);
 }
-
 
 @theme inline {
   --color-ember: var(--ember);
@@ -109,6 +108,7 @@
     color: var(--color-foreground);
     font-family: var(--font-mono);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1, h2, h3, h4 { font-family: var(--font-mono); letter-spacing: -0.01em; }
   /* WCAG-friendly visible focus everywhere */
@@ -127,6 +127,24 @@
   background-position: -1px -1px;
   position: relative;
 }
+
+/* 3D Parallax Perspective Container */
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.parallax-card {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.parallax-card:hover {
+  transform: translateY(-4px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale3d(1.015, 1.015, 1.015);
+}
+
+
+
 
 
 

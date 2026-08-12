@@ -11,15 +11,16 @@ import {
 import { RazorpayButton } from "@/components/razorpay-button";
 
 
+import { useCart } from "@/lib/cart";
+
+import { Link } from "@tanstack/react-router";
+
 export function OrderPanel({ product }: { product: Product }) {
+  const { addItem } = useCart();
   const soldOut = isSoldOut(product);
   const [color, setColor] = useState(product.colors[0] ?? "Default");
   const [quantity, setQuantity] = useState(1);
-  const [checked, setChecked] = useState<boolean[]>(ORDER_ACKNOWLEDGEMENTS.map(() => false));
-  const allAccepted = checked.every(Boolean);
-
-  const toggle = (i: number) =>
-    setChecked((prev) => prev.map((v, idx) => (idx === i ? !v : v)));
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   return (
     <div className="mt-6 border-t border-border pt-6">
@@ -32,7 +33,7 @@ export function OrderPanel({ product }: { product: Product }) {
                 key={c}
                 onClick={() => setColor(c)}
                 className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] transition ${
-                  color === c ? "border-hot bg-hot text-primary-foreground" : "border-border hover:border-hot"
+                  color === c ? "border-hot bg-hot text-primary-foreground font-bold" : "border-border hover:border-hot"
                 }`}
               >
                 {c}
@@ -51,45 +52,62 @@ export function OrderPanel({ product }: { product: Product }) {
         </div>
       </div>
 
-      <fieldset className="mt-6 space-y-2 border border-border bg-muted/40 p-4">
-        <legend className="px-1 font-mono text-[10px] tracking-[0.2em] text-muted-foreground">BEFORE YOU ORDER</legend>
-        {ORDER_ACKNOWLEDGEMENTS.map((label, i) => (
-          <label key={label} className="flex cursor-pointer items-start gap-2 text-[13px] leading-snug">
-            <input
-              type="checkbox"
-              checked={checked[i]}
-              onChange={() => toggle(i)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--hot)]"
-            />
-            <span className={checked[i] ? "text-foreground" : "text-muted-foreground"}>{label}</span>
-          </label>
-        ))}
-      </fieldset>
+      {/* Single Terms & Conditions Checkbox with Hyperlink */}
+      <div className="mt-6 border border-border bg-card/60 p-4">
+        <label className="flex cursor-pointer items-start gap-3 text-xs leading-snug">
+          <input
+            type="checkbox"
+            checked={termsAccepted}
+            onChange={(e) => setTermsAccepted(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--hot)]"
+          />
+          <span className={termsAccepted ? "text-foreground font-semibold" : "text-muted-foreground"}>
+            I have read and agree to the 3D printing{" "}
+            <Link
+              to="/p/$slug"
+              params={{ slug: "terms" }}
+              target="_blank"
+              className="text-hot underline font-bold hover:brightness-125"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Terms &amp; Conditions
+            </Link>
+            .
+          </span>
+        </label>
+      </div>
 
       <div className="mt-6 space-y-3">
         <button
-          disabled={soldOut || !allAccepted}
+          disabled={soldOut}
+          onClick={() => addItem(product, quantity, color)}
+          className="w-full border border-border bg-hot py-3.5 text-xs font-mono font-bold tracking-[0.2em] text-primary-foreground shadow transition duration-300 hover:brightness-110"
+        >
+          + ADD TO SHOPPING CART
+        </button>
+
+        <button
+          disabled={soldOut || !termsAccepted}
           onClick={() => activeCheckoutProvider.checkout({ product, color, quantity })}
-          className={`w-full border border-border py-4 text-sm font-bold tracking-[0.2em] transition-all duration-300 ${
-            soldOut || !allAccepted
-              ? "cursor-not-allowed bg-muted text-muted-foreground"
-              : "bg-primary text-primary-foreground hover:bg-hot hover:text-primary-foreground hover:shadow-[0_0_30px_-6px_var(--hot)]"
+          className={`w-full border border-border py-3 text-xs font-bold tracking-[0.2em] transition-all duration-300 ${
+            soldOut || !termsAccepted
+              ? "cursor-not-allowed bg-muted text-muted-foreground opacity-60"
+              : "bg-card text-foreground hover:border-hot hover:text-hot"
           }`}
         >
-          {soldOut ? "COMING SOON" : "ORDER ON WHATSAPP"}
+          {soldOut ? "COMING SOON" : "ORDER DIRECT ON WHATSAPP"}
         </button>
-        {!soldOut && !allAccepted && (
+        {!soldOut && !termsAccepted && (
           <p className="text-center font-mono text-[10px] tracking-[0.15em] text-muted-foreground">
-            TICK ALL FIVE BOXES TO UNLOCK ORDERING
+            PLEASE ACCEPT TERMS &amp; CONDITIONS TO UNLOCK DIRECT CHECKOUT
           </p>
         )}
         <RazorpayButton
           product={product}
           quantity={quantity}
           color={color}
-          disabled={soldOut || !allAccepted}
+          disabled={soldOut || !termsAccepted}
         />
-
       </div>
 
       <p className="mt-3 text-center font-mono text-[10px] tracking-[0.15em] text-muted-foreground">

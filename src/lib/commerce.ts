@@ -51,9 +51,10 @@ export const whatsappProvider: CheckoutProvider = {
 export const activeCheckoutProvider: CheckoutProvider = whatsappProvider;
 
 export const ORDER_ACKNOWLEDGEMENTS = [
-  "I understand this product is printed after ordering.",
-  "I understand color may slightly vary.",
-  "Layer lines are part of 3D printing.",
-  "I understand returns are not accepted.",
-  "I understand damaged products must be reported within 24 hours.",
+  "I understand parts are 3D-printed to order and feature authentic micro layer lines (0.2mm/0.12mm FDM & Resin texture).",
+  "I accept standard 3D printing manufacturing tolerances (±0.2mm / ±0.5% dimensional variance).",
+  "I acknowledge material thermal limits (PLA max 55°C, PETG max 75°C) and agree to avoid high-heat environments.",
+  "I understand products are customized to order and are non-refundable once printing begins unless damaged in transit.",
+  "I confirm I own or hold valid usage rights for any custom CAD files (.STL/.3MF/.STEP) submitted for fabrication.",
+  "I agree to record an unboxing video within 48 hours of delivery to claim free replacements for transit damage.",
 ];

@@ -28,10 +28,10 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      className="inline-flex h-8 items-center justify-center border border-border px-3 font-mono text-[11px] tracking-[0.18em] text-foreground transition hover:border-hot hover:text-hot"
+      aria-label={`Switch to ${theme === "dark" ? "cream light" : "dark"} theme`}
+      className="inline-flex h-9 items-center justify-center border border-border bg-card px-3 font-mono text-[11px] font-bold tracking-[0.18em] text-foreground transition hover:border-hot hover:text-hot"
     >
-      {theme === "dark" ? "☾ DARK" : "☀ LIGHT"}
+      {theme === "dark" ? "☀ LIGHT" : "🌙 DARK"}
     </button>
   );
 }

@@ -73,6 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -94,12 +95,18 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/cart-drawer";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
-      <Toaster />
+      <CartProvider>
+        <Outlet />
+        <CartDrawer />
+        <Toaster />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { ProductCard } from "@/components/product-card";
 import { CipherHeading } from "@/components/cipher-heading";
-import { HeroWordmark } from "@/components/logo-with-translations";
-import { products, categories, formatPrice } from "@/lib/content";
+import { ParallaxHero } from "@/components/parallax-hero";
+import { QuickViewModal } from "@/components/quick-view-modal";
+import { products, categories, formatPrice, type Product } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,30 +33,6 @@ const SORTS: { id: SortKey; label: string }[] = [
   { id: "stock", label: "STOCK" },
 ];
 
-function Hero() {
-  return (
-    <section className="relative overflow-hidden border-b border-border bg-pluses">
-      <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
-        <p className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground">EDITION 01 — BENGALURU, INDIA</p>
-        <h1 className="mt-5 font-mono text-[15vw] font-bold leading-[0.85] tracking-tighter md:text-[9rem]">
-          <HeroWordmark />
-        </h1>
-      </div>
-      <div className="border-t border-border bg-ink py-2 text-foreground">
-        <div className="flex gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.3em] animate-[marquee_28s_linear_infinite]">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="flex gap-8">
-              <span>MADE TO ORDER</span><span className="text-hot">◉</span>
-              <span>HAND FINISHED</span><span className="text-hot">◉</span>
-              <span>FREE SHIPPING IN INDIA</span><span className="text-hot">◉</span>
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function StatsBand() {
   return (
     <dl className="mx-auto mt-20 grid max-w-6xl grid-cols-3 gap-4 border-t border-border px-4 py-8 font-mono text-[11px] tracking-[0.15em] text-muted-foreground md:px-6">
@@ -66,12 +43,11 @@ function StatsBand() {
   );
 }
 
-
-
 function Index() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("ALL");
   const [sort, setSort] = useState<SortKey>("newest");
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -104,37 +80,51 @@ function Index() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
 
-      <main className="flex-1">
-        <Hero />
-
-        {/* Featured strip */}
-        <section className="mx-auto max-w-6xl px-4 pt-14 md:px-6">
-          <div className="mb-4 flex items-end justify-between border-b border-border pb-3">
-            <h2 className="font-mono text-xl font-bold tracking-tight">FEATURED</h2>
-            <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">HAND PICKED</span>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {featured.map((p) => (
-              <a
-                key={p.slug}
-                href={`/${p.slug}`}
-                className="group flex items-center gap-4 border border-border bg-card p-4 transition-all duration-300 hover:border-hot hover:shadow-[0_14px_30px_-22px_rgba(255,122,0,0.9)]"
-              >
-                <img src={p.thumbnail} alt={p.title} width={80} height={80} loading="lazy" className="h-16 w-16 object-contain transition-transform duration-500 group-hover:scale-110" />
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">{p.sku}</p>
-                  <p className="text-base font-bold">{p.title}</p>
-                  <p className="text-xs text-muted-foreground">{formatPrice(p.price)}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section id="shop" className="mx-auto max-w-6xl px-4 pb-14 pt-16 md:px-6">
-          <div className="mb-10 flex justify-center">
+      <main className="flex-1 bg-pluses">
+        <section id="shop" className="mx-auto max-w-6xl px-4 pb-14 pt-8 md:px-6">
+          <div className="mb-6 flex justify-center">
             <CipherHeading />
           </div>
+
+          {/* Product Highlights Spotlight */}
+          {featured.length > 0 && (
+            <div className="mb-10 border border-border bg-card p-5">
+              <div className="mb-4 flex items-center justify-between border-b border-border pb-3 font-mono">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-hot animate-ping" />
+                  <h2 className="text-sm font-bold tracking-widest text-foreground">PRODUCT HIGHLIGHTS &amp; SPOTLIGHTS</h2>
+                </div>
+                <span className="text-[10px] tracking-widest text-muted-foreground">ENGINEER CHOICE ★ 4.9/5</span>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3 font-mono">
+                {featured.map((p) => (
+                  <Link
+                    key={p.slug}
+                    to="/$slug"
+                    params={{ slug: p.slug }}
+                    className="group relative flex items-center gap-3 border border-border bg-background p-3 transition duration-300 hover:border-hot hover:shadow-[0_12px_28px_-20px_var(--hot)]"
+                  >
+                    <span className="absolute right-2 top-2 rounded bg-hot px-1.5 py-0.5 text-[8px] font-bold text-primary-foreground uppercase">
+                      SPOTLIGHT
+                    </span>
+                    <img
+                      src={p.thumbnail}
+                      alt={p.title}
+                      width={64}
+                      height={64}
+                      className="h-14 w-14 object-contain bg-card p-1 border border-border transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div>
+                      <p className="text-[9px] tracking-widest text-muted-foreground uppercase">{p.sku}</p>
+                      <p className="text-sm font-bold text-foreground group-hover:text-hot">{p.title}</p>
+                      <p className="mt-0.5 text-xs font-bold text-hot">{formatPrice(p.price)}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Controls */}
           <div className="mb-6 border border-border bg-card">
@@ -152,7 +142,7 @@ function Index() {
                     key={s.id}
                     onClick={() => setSort(s.id)}
                     className={`border px-3 py-1.5 font-mono text-[10px] tracking-[0.18em] transition ${
-                      sort === s.id ? "border-border bg-primary text-primary-foreground" : "border-border hover:border-hot hover:text-hot"
+                      sort === s.id ? "border-border bg-primary text-primary-foreground font-bold" : "border-border hover:border-hot hover:text-hot"
                     }`}
                   >
                     {s.label}
@@ -160,13 +150,13 @@ function Index() {
                 ))}
               </div>
             </div>
-            <div className="flex flex-wrap gap-2 p-3">
+            <div className="flex items-center gap-2 overflow-x-auto p-3 no-scrollbar scroll-smooth">
               {["ALL", ...categories].map((c) => (
                 <button
                   key={c}
                   onClick={() => setCategory(c)}
-                  className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition ${
-                    category === c ? "border-hot bg-hot text-primary-foreground" : "border-border hover:border-hot hover:text-hot"
+                  className={`shrink-0 border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition ${
+                    category === c ? "border-hot bg-hot text-primary-foreground font-bold" : "border-border hover:border-hot hover:text-hot"
                   }`}
                 >
                   {c}
@@ -186,14 +176,22 @@ function Index() {
           ) : (
             <div className="grid gap-6 md:grid-cols-2">
               {visible.map((p) => (
-                <ProductCard key={p.slug} product={p} />
+                <ProductCard
+                  key={p.slug}
+                  product={p}
+                  onQuickView={(prod) => setQuickViewProduct(prod)}
+                />
               ))}
             </div>
           )}
         </section>
       </main>
 
-      <StatsBand />
+      <QuickViewModal
+        product={quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+      />
+
       <FloatingWhatsApp />
 
       <SiteFooter />

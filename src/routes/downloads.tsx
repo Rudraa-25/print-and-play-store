@@ -7,7 +7,7 @@ const SITE = "https://print-and-play-store.lovable.app";
 type DownloadItem = {
   name: string;
   file: string;
-  type: "STL" | "3MF" | "GLB" | "PDF";
+  type: "STL" | "3MF" | "GLB" | "PDF" | "MD";
   size: string;
   license: string;
   attribution: string;
@@ -19,6 +19,15 @@ type DownloadItem = {
  * filenames below in sync — see README "Launch checklist".
  */
 const DOWNLOADS: DownloadItem[] = [
+  {
+    name: "spool skill & print spec guide",
+    file: "/downloads/SKILL.md",
+    type: "MD",
+    size: "1.2 KB",
+    license: "CC BY-NC 4.0",
+    attribution: "spool studio",
+    note: "3D printing profiles, slicer presets, and material guidelines.",
+  },
   {
     name: "GRIPPY — print files",
     file: "/downloads/grippy.3mf",
@@ -62,6 +71,7 @@ const ICONS: Record<DownloadItem["type"], string> = {
   "3MF": "▣",
   GLB: "◐",
   PDF: "▤",
+  MD: "🖹",
 };
 
 export const Route = createFileRoute("/downloads")({

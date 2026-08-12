@@ -211,7 +211,7 @@ function ProductPage() {
                 <Spec label="SERIAL" value={p.sku} />
               </div>
               <div className="mt-6 space-y-1.5 border-t border-border pt-4 text-sm">
-                <p><span className="font-bold">Made in.</span> <span className="text-muted-foreground">Bengaluru, India.</span></p>
+                <p><span className="font-bold">Made in.</span> <span className="text-muted-foreground">Ahmedabad, Gujarat, India.</span></p>
                 <p>
                   <span className="font-bold">Returns.</span>{" "}
                   <span className="text-muted-foreground">Not accepted — made to order. </span>

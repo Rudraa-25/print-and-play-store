@@ -1,87 +1,65 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const WORDS = [
-  "SHOP",        // English
-  "दुकान",       // Hindi
-  "ದುಕಾನ",       // Kannada
-  "கடை",         // Tamil
-  "দোকান",       // Bengali
-  "દુકાન",       // Gujarati
-  "ਦੁਕਾਨ",       // Punjabi
-  "دُکان",       // Urdu
-  "ദുകാൻ",       // Malayalam
-  "दुकान",       // Marathi
+export const DUKAAN_LANGUAGES = [
+  { word: "SHOP", lang: "English", script: "Latin" },
+  { word: "दुकान", lang: "Hindi / Marathi", script: "Devanagari" },
+  { word: "દુકાન", lang: "Gujarati", script: "Gujarati" },
+  { word: "கடை", lang: "Tamil", script: "Tamil" },
+  { word: "দোকান", lang: "Bengali / Assamese", script: "Bengali" },
+  { word: "ಅಂಗಡಿ", lang: "Kannada", script: "Kannada" },
+  { word: "దుకాణము", lang: "Telugu", script: "Telugu" },
+  { word: "കട", lang: "Malayalam", script: "Malayalam" },
+  { word: "ਦੁਕਾਨ", lang: "Punjabi", script: "Gurmukhi" },
+  { word: "ଦୋକାନ", lang: "Odia", script: "Odia" },
+  { word: "دُکان", lang: "Urdu", script: "Perso-Arabic" },
 ];
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#*<>[]{}/\\@%$&+=?!";
-
-function scramble(target: string, progress: number) {
-  const chars = Array.from(target);
-  return chars
-    .map((c, i) => {
-      if (i < progress) return c;
-      if (c === " ") return " ";
-      return CHARS[Math.floor(Math.random() * CHARS.length)];
-    })
-    .join("");
-}
-
 export function CipherHeading() {
-  const [display, setDisplay] = useState(WORDS[0]);
-  const [hovered, setHovered] = useState(false);
-  const idxRef = useRef(0);
-  const rafRef = useRef<number | null>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const animateTo = (target: string, onDone?: () => void) => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    let progress = 0;
-    const total = Array.from(target).length;
-    let frame = 0;
-    const tick = () => {
-      frame++;
-      if (frame % 2 === 0) progress = Math.min(progress + 1, total);
-      setDisplay(scramble(target, progress));
-      if (progress < total) {
-        rafRef.current = requestAnimationFrame(tick);
-      } else {
-        setDisplay(target);
-        onDone?.();
-      }
-    };
-    rafRef.current = requestAnimationFrame(tick);
-  };
+  const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if (!hovered) return;
-    const cycle = () => {
-      idxRef.current = (idxRef.current + 1) % WORDS.length;
-      animateTo(WORDS[idxRef.current], () => {
-        timerRef.current = setTimeout(cycle, 900);
-      });
-    };
-    cycle();
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [hovered]);
+    if (!isHovered) {
+      setIndex(0);
+      return;
+    }
 
-  const handleLeave = () => {
-    setHovered(false);
-    idxRef.current = 0;
-    animateTo(WORDS[0]);
-  };
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % DUKAAN_LANGUAGES.length);
+    }, 600);
+
+    return () => clearInterval(timer);
+  }, [isHovered]);
+
+  const current = DUKAAN_LANGUAGES[index];
 
   return (
-    <h1
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={handleLeave}
-      className="cursor-pointer select-none font-mono font-bold text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight inline-block"
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group cursor-pointer text-center font-mono py-4"
     >
-      <span className="text-hot">{"["}</span>
-      <span className="mx-2 inline-block min-w-[3ch] text-center align-baseline">{display}</span>
-      <span className="text-hot">{"]"}</span>
-    </h1>
+      {/* Multilingual Dukaan Main Heading - Hover Only Cycling */}
+      <h1 className="select-none text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight transition-all duration-300">
+        <span className="text-hot">[</span>
+        <span className="mx-2 inline-block text-foreground transition-all duration-300 transform group-hover:scale-105 group-hover:text-hot">
+          {current.word}
+        </span>
+        <span className="text-hot">]</span>
+      </h1>
+
+      {/* Hover Instruction / Language Indicator Badge */}
+      <div className="mt-2 flex items-center justify-center gap-2 text-xs tracking-widest text-muted-foreground transition-opacity duration-300">
+        <span className={`h-2 w-2 rounded-full ${isHovered ? "bg-hot animate-ping" : "bg-muted-foreground"}`} />
+        {isHovered ? (
+          <>
+            <span className="uppercase text-foreground font-bold">{current.lang}</span>
+            <span>({current.script})</span>
+          </>
+        ) : (
+          <span className="text-[10px] tracking-[0.2em]">HOVER TO SEE MULTILINGUAL LANGUAGES ↓</span>
+        )}
+      </div>
+    </div>
   );
 }
