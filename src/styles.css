@@ -119,12 +119,13 @@
 /* Plus-sign grid background */
 @utility bg-pluses {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 44px 44px;
   background-position: -1px -1px;
   position: relative;
 }
+
 
 
 /* Barcode strip */
