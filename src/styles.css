@@ -67,6 +67,7 @@
   --ember: oklch(0.8 0.17 70);
   --gradient-neon: linear-gradient(135deg, var(--hot), var(--ember));
   --shadow-neon: 0 0 40px -8px var(--hot);
+  --grid-line: oklch(1 0 0 / 0.06);
 }
 
 /* Light theme */
@@ -92,6 +93,7 @@
   --ring: oklch(0.65 0.19 50);
   --hot: oklch(0.65 0.19 50);
   --ember: oklch(0.75 0.16 68);
+  --grid-line: oklch(0 0 0 / 0.08);
 }
 
 

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import spoolLogo from "@/assets/spool-logo.png.asset.json";
 import { Barcode } from "@/components/barcode";
 import { LogoWithTranslations } from "@/components/logo-with-translations";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/commerce";
 
 export function SiteHeader() {
@@ -15,7 +16,7 @@ export function SiteHeader() {
             aria-hidden="true"
             width={28}
             height={28}
-            className="opacity-90 brightness-0 invert transition group-hover:opacity-100"
+            className="opacity-90 brightness-0 transition group-hover:opacity-100 dark:invert"
           />
           <LogoWithTranslations />
         </Link>
@@ -25,6 +26,7 @@ export function SiteHeader() {
           <Link to="/p/$slug" params={{ slug: "about" }} className="hidden transition hover:text-hot md:inline">ABOUT</Link>
           <Link to="/p/$slug" params={{ slug: "faq" }} className="hidden transition hover:text-hot md:inline">FAQ</Link>
           <Link to="/contact" className="transition hover:text-hot">CONTACT</Link>
+          <ThemeToggle />
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
 
