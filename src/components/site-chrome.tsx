@@ -16,7 +16,7 @@ export function SiteHeader() {
             aria-hidden="true"
             width={28}
             height={28}
-            className="opacity-90 brightness-0 transition group-hover:opacity-100 dark:invert"
+            className="spool-mark opacity-90 transition group-hover:opacity-100"
           />
           <LogoWithTranslations />
         </Link>

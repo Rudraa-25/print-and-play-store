@@ -199,3 +199,7 @@ main { animation: spool-fade-in 0.45s ease-out both; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Brand mark adapts to theme */
+.spool-mark { filter: brightness(0) invert(1); }
+.light .spool-mark { filter: brightness(0); }
