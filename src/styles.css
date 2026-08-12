@@ -69,6 +69,32 @@
   --shadow-neon: 0 0 40px -8px var(--hot);
 }
 
+/* Light theme */
+.light {
+  --background: oklch(0.98 0.002 250);
+  --foreground: oklch(0.18 0.005 250);
+  --ink: oklch(0.94 0.003 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.005 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.005 250);
+  --primary: oklch(0.65 0.19 50);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.75 0.17 58);
+  --secondary: oklch(0.94 0.003 250);
+  --secondary-foreground: oklch(0.18 0.005 250);
+  --muted: oklch(0.94 0.003 250);
+  --muted-foreground: oklch(0.45 0.008 250);
+  --accent: oklch(0.75 0.16 68);
+  --accent-foreground: oklch(0.18 0.005 250);
+  --border: oklch(0.86 0.005 250);
+  --input: oklch(0.86 0.005 250);
+  --ring: oklch(0.65 0.19 50);
+  --hot: oklch(0.65 0.19 50);
+  --ember: oklch(0.75 0.16 68);
+}
+
+
 @theme inline {
   --color-ember: var(--ember);
   --color-primary-glow: var(--primary-glow);
